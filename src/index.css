@@ -13,3 +13,125 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#root {
+  padding-top: 100px;
+}
+.profile {
+  background-color: #b2d0d8;
+  margin: 0 auto;
+  width: 230px;
+  margin-bottom: 50px;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+}
+.description {
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.description p {
+  margin: 0;
+}
+.description .name {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.description .tag {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px 0;
+}
+.description .location {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px 0;
+}
+.stats {
+  padding: 0;
+  display: flex;
+  width: 225px;
+  margin: 0 auto;
+  outline: 1px solid #9f9fba;
+}
+.stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  background-color: #92bbc9;
+  padding: 10px;
+}
+.quantity {
+  font-weight: bold;
+}
+.statistics {
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #b2d0d8;
+  margin: 0 auto;
+  width: 300px;
+  margin-bottom: 100px;
+}
+.statistics .title {
+  text-align: center;
+}
+.statistics .stat-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.statistics .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background-color: #92bbc9;
+  padding: 0 10px;
+  height: 100px;
+  outline: 1px solid #9f9fba;
+  color: snow;
+  font-weight: 600;
+}
+.friend-list {
+  padding: 0;
+  margin-bottom: 100px;
+}
+.friend-list .avatar {
+  width: 48px;
+  height: 48px;
+}
+.friend-list .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #92bbc9;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+}
+.friend-list .name {
+  margin-left: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 22px;
+  color: #181818;
+}
+.friend-list .status {
+  width: 16px;
+  height: 16px;
+  margin-right: 25px;
+  border-radius: 50%;
+}
