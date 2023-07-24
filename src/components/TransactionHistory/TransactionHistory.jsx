@@ -1,6 +1,9 @@
-export const TransactionHistory = ({ transactions }) => {
+import PropTypes from 'prop-types';
+import { TransactionHistoryTable } from './TransactionHistory.styled';
+
+const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
+    <TransactionHistoryTable>
       <thead>
         <tr>
           <th>Type</th>
@@ -8,22 +11,32 @@ export const TransactionHistory = ({ transactions }) => {
           <th>Currency</th>
         </tr>
       </thead>
-
       <tbody>
-        {transactions.map(({ id, type, amount, currency }) => {
-          return (
-            <tr key={id}>
-              <td>{Normalize(type)}</td>
-              <td>{amount}</td>
-              <td>{currency}</td>
-            </tr>
-          );
-        })}
+        {items.map(({ id, type, amount, currency }) => (
+          <tr key={id}>
+            <td>{Normalize(type)}</td>
+            <td>{amount}</td>
+            <td>{currency}</td>
+          </tr>
+        ))}
       </tbody>
-    </table>
+    </TransactionHistoryTable>
   );
 };
 
 function Normalize(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export default TransactionHistory;

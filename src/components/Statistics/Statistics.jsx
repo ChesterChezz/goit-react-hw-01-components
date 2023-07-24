@@ -1,14 +1,21 @@
-export const Statistics = ({ stats, title }) => {
-  if (title === undefined) {
-    title = 'Upload stats';
-  }
+import PropTypes from 'prop-types';
+
+import {
+  Section,
+  Title,
+  StatList,
+  StatItem,
+  Label,
+  Percentage,
+} from './Statistics.styled.jsx';
+
+const Statistics = ({ stats, title }) => {
   return (
-    <section className="statistics">
-      <h2 className="title">{title}</h2>
-      <ul className="stat-list">
+    <Section>
+      {title && <Title>Upload stats</Title>}
+      <StatList>
         {stats.map(stat => (
-          <li
-            className="item"
+          <StatItem
             key={stat.id}
             style={{
               backgroundColor: `#${Math.floor(Math.random() * 16777215)
@@ -16,11 +23,24 @@ export const Statistics = ({ stats, title }) => {
                 .padStart(6, '0')}`,
             }}
           >
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}%</span>
-          </li>
+            <Label>{stat.label}</Label>
+            <Percentage>{stat.percentage}%</Percentage>
+          </StatItem>
         ))}
-      </ul>
-    </section>
+      </StatList>
+    </Section>
   );
 };
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+export default Statistics;
